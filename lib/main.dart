@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paystack_shop/payments/paystack_payment_page.dart';
+import 'package:paystack_shop/transaction_history_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -124,6 +125,8 @@ class _HomePageState extends State<HomePage> {
                 );
               } else {
                 print(price);
+                print(email);
+                // print(MakePayment(ctx: context, price: price, email: email));
                 MakePayment(ctx: context, price: price, email: email)
                     .chargeCardAndMakePayment();
               }
@@ -155,7 +158,14 @@ class _HomePageState extends State<HomePage> {
             height: 15,
           ),
           GestureDetector(
-            onTap: (() {}),
+            onTap: (() {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TransactionHistoryPage(),
+                ),
+              );
+            }),
             child: Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,

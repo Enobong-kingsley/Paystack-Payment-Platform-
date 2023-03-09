@@ -45,7 +45,7 @@ class MakePayment {
       CheckoutResponse response = await paystack.checkout(
         ctx,
         charge: charge,
-        method: CheckoutMethod.selectable,
+        method: CheckoutMethod.card,
         fullscreen: false,
         logo: FlutterLogo(
           size: 24,
